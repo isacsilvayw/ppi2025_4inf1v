@@ -50,8 +50,8 @@
   background-color: deepskyblue;
 }
 
-.aside {
-  grid-area: aside;
+.aside1 {
+  grid-area: aside1;
   background-color: deeppink;
 
   @media (max-width: 1200px) {
@@ -59,7 +59,21 @@
   }
 }
 
-.footer {
-  grid-area: footer;
+.aside2 {
+  grid-area: aside2;
+  background-color: deeppink;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.footer1 {
+  grid-area: footer1;
+  background-color: darkslateblue;
+}
+
+.footer2 {
+  grid-area: footer2;
   background-color: darkslateblue;
 }
