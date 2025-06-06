@@ -21,20 +21,25 @@
   display: grid;
 
   grid-template-areas:
-    "header1 header1"
-    "aside header2"
-    "aside main"
-    "footer footer";
+    "header1 header1 header1"
+    "aside header2 aside2"
+    "aside1 main aside2"
+    "aside1 footer2 aside2"
+    "footer1 footer2 aside2";
 
-  grid-template-columns: 1fr 3fr;
+
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 10rem 5rem auto 10rem;
 
   @media (max-width: 1200px) {
     grid-template-areas:
       "header1"
       "header2"
+      "aside1"
+      "aside2"
       "main"
-      "footer";
+      "footer1"
+      "footer2";
 
     grid-template-columns: 1fr;
   }
@@ -42,17 +47,17 @@
 
 .header1 {
   grid-area: header1;
-  background-color: darkslateblue;
+  background-color: rgb(10, 49, 47);
 }
 
 .header2 {
   grid-area: header2;
-  background-color: deepskyblue;
+  background-color: rgb(3, 116, 50);
 }
 
 .aside1 {
   grid-area: aside1;
-  background-color: deeppink;
+  background-color: rgb(238, 255, 0);
 
   @media (max-width: 1200px) {
     display: none;
@@ -61,7 +66,7 @@
 
 .aside2 {
   grid-area: aside2;
-  background-color: deeppink;
+  background-color: rgb(91, 100, 11);
 
   @media (max-width: 1200px) {
     display: none;
@@ -70,10 +75,10 @@
 
 .footer1 {
   grid-area: footer1;
-  background-color: darkslateblue;
+  background-color: rgb(0, 255, 0);
 }
 
 .footer2 {
   grid-area: footer2;
-  background-color: darkslateblue;
+  background-color: rgb(5, 136, 0);
 }

@@ -28,9 +28,10 @@ export function MyGrid() {
             <h2>Card 5</h2>
             <p>This is the fifth card.</p>
           </div>
-        </div>
       </div>
       <footer className={styles.footer} />
     </div>
+  );
+  </div>
   );
 }
