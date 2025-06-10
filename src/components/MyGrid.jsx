@@ -1,37 +1,46 @@
 import styles from "./MyGrid.module.css";
+import { useEffect, useState } from "react";
+
+function useBreakpoints() {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return {
+    isLt1200: width < 1200,
+    isLt768: width < 768,
+  };
+}
 
 export function MyGrid() {
+  const { isLt1200, isLt768 } = useBreakpoints();
+
   return (
     <div className={styles.container}>
-      <header className={styles.header1} />
-      <header className={styles.header2} />
-      <aside className={styles.aside} />
-      <div className={styles.main}>
+      {!isLt768 && <header className={styles.header1}>Header 1</header>}
+      {!isLt768 && <header className={styles.header2}>Header 2</header>}
+      {!isLt768 && <aside className={styles.aside1}>Aside Esquerdo</aside>}
+      {!isLt1200 && !isLt768 && <aside className={styles.aside2}>Aside Direito</aside>}
+      <main className={styles.main}>
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <h2>Card 1</h2>
-            <p>This is the first card.</p>
-          </div>
-          <div className={styles.card}>
-            <h2>Card 2</h2>
-            <p>This is the second card.</p>
-          </div>
-          <div className={styles.card}>
-            <h2>Card 3</h2>
-            <p>This is the third card.</p>
-          </div>
-          <div className={styles.card}>
-            <h2>Card 4</h2>
-            <p>This is the fourth card.</p>
-          </div>
-          <div className={styles.card}>
-            <h2>Card 5</h2>
-            <p>This is the fifth card.</p>
-          </div>
-      </div>
-      <footer className={styles.footer} />
+          {[1, 2, 3, 4, 5].map((n) => (
+            <div className={styles.card} key={n}>
+              <div className={styles.cardContent}>
+                <h2 className={styles.cardTitle}>Card {n}</h2>
+                <p className={styles.cardDesc}>Descrição do card {n}.</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
+      {!isLt768 && <footer className={styles.footer1}>Footer 1</footer>}
+      {!isLt768 && <footer className={styles.footer2}>Footer 2</footer>}
     </div>
-  );
-  </div>
   );
 }
