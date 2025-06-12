@@ -3,39 +3,27 @@ import { MyText } from "./MyText";
 
 export function MyTextList() {
   const texts = [
-    {
-      title: "Lorem ipsum dolor",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quos excepturi ea enim odit vel et quia doloremque, nam accusantium eum blanditiis debitis natus inventore laborum magnam ipsum tempore itaque?",
-    },
-    {
-      title: "Quos, voluptatum debitis",
-      text: "Quos, voluptatum debitis, distinctio aut eaque ipsum impedit qui assumenda quis tempore libero voluptates dolore, vel inventore iste? Tempore magnam ut vero!",
-    },
-    {
-      title: "amet consectetur adipisicing",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere sed veritatis officiis atque exercitationem vero sit necessitatibus deserunt, maxime ab expedita repellat impedit aut quae temporibus debitis voluptatem recusandae ratione.",
-    },
-    {
-      title: "Lorem ipsum dolor",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quos excepturi ea enim odit vel et quia doloremque, nam accusantium eum blanditiis debitis natus inventore laborum magnam ipsum tempore itaque?",
-    },
-    {
-      title: "Quos, voluptatum debitis",
-      text: "Quos, voluptatum debitis, distinctio aut eaque ipsum impedit qui assumenda quis tempore libero voluptates dolore, vel inventore iste? Tempore magnam ut vero!",
-    },
-    // {
-    //   title: "amet consectetur adipisicing",
-    //   text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere sed veritatis officiis atque exercitationem vero sit necessitatibus deserunt, maxime ab expedita repellat impedit aut quae temporibus debitis voluptatem recusandae ratione.",
-    // },
-    // {
-    //   title: "Lorem ipsum dolor",
-    //   text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quos excepturi ea enim odit vel et quia doloremque, nam accusantium eum blanditiis debitis natus inventore laborum magnam ipsum tempore itaque?",
-    // },
-    // {
-    //   title: "Lorem ipsum dolor",
-    //   text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quos excepturi ea enim odit vel et quia doloremque, nam accusantium eum blanditiis debitis natus inventore laborum magnam ipsum tempore itaque?",
-    // },
-  ];
+  {
+    title: "Mar",
+    text: "O mar é uma vasta extensão de água salgada que cobre grande parte da superfície da Terra, essencial para a vida e o clima do planeta.",
+  },
+  {
+    title: "Oceano",
+    text: "Os oceanos são gigantescos corpos de água salgada que conectam continentes e abrigam uma imensa diversidade de vida marinha.",
+  },
+  {
+    title: "Ilha",
+    text: "Uma ilha é uma porção de terra cercada por água por todos os lados, podendo abrigar ecossistemas únicos e isolados.",
+  },
+  {
+    title: "Praia",
+    text: "A praia é a interface entre o mar e a terra, conhecida por sua areia, beleza natural e importante valor turístico e ecológico.",
+  },
+  {
+    title: "Fundo do mar",
+    text: "O fundo do mar é um ambiente misterioso, pouco explorado, lar de criaturas fascinantes e formações geológicas impressionantes.",
+  },
+];
 
   return (
     <div>

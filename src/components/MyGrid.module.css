@@ -7,9 +7,9 @@
 }
 
 .card {
-  height: 20rem;
-  background-color: var(--primary-dark);
-  color: var(--primary-contrast-light);
+  height: 50rem;
+  background-color: var(--primary-dark); /* azul escuro */
+  color: var(--primary-contrast-light);  /* branco */
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
@@ -19,204 +19,47 @@
 
 .container {
   display: grid;
+
   grid-template-areas:
-    "headerRow headerRow headerRow"
-    "aside1 main aside2"
-    "footer1 footer2 footer2";
-  grid-template-columns: 20rem 1fr 20rem;
-  grid-template-rows: 8rem 1fr 6rem;
-  min-height: 100vh;
-  gap: 1rem;
+    "header1 header1"
+    "aside header2"
+    "aside main"
+    "footer footer";
+
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 10rem 5rem auto 10rem;
 
   @media (max-width: 1200px) {
     grid-template-areas:
-      "header2"
       "header1"
-      "aside1"
+      "header2"
       "main"
-      "footer1"
-      "footer2";
+      "footer";
+
     grid-template-columns: 1fr;
-    grid-template-rows: 6rem 6rem 5rem 1fr 5rem 5rem;
   }
 }
 
 .header1 {
   grid-area: header1;
-  background: #1e3c3a;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--primary-dark); /* azul escuro */
 }
 
 .header2 {
   grid-area: header2;
-  background: #094e37;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--primary); /* azul vibrante */
 }
 
-.aside1 {
-  grid-area: aside1;
-  background: #b2ebf2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.aside {
+  grid-area: aside;
+  background-color: var(--primary-light); /* azul claro */
 
   @media (max-width: 1200px) {
     display: none;
   }
 }
 
-.aside2 {
-  grid-area: aside2;
-  background: #0097a7;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @media (max-width: 1200px) {
-    display: none;
-  }
-}
-
-.main {
-  grid-area: main;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-}
-
-.footer1 {
-  grid-area: footer1;
-  background: #14222b;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 10rem; /* aumente o valor conforme desejar */
-  font-size: 2rem;
-}
-
-.footer2 {
-  grid-area: footer2;
-  background: #26c6da;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  gap: 2rem;
-  width: 100%;
-  align-items: stretch;
-}
-
-.card {
-  background: #f7fafc;
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(30, 60, 58, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 14rem;
-}
-
-.cardContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  width: 100%;
-}
-
-.cardTitle {
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #1e3c3a;
-}
-
-.cardDesc {
-  font-size: 1.6rem;
-  color: #14222b;
-  text-align: center;
-}
-
-/* Responsividade */
-@media (max-width: 1200px) {
-  .container {
-    grid-template-areas:
-      "header2"
-      "header1"
-      "aside1"
-      "main"
-      "footer1"
-      "footer2";
-    grid-template-columns: 1fr;
-    grid-template-rows: 6rem 6rem 5rem 1fr 5rem 5rem;
-  }
-  .aside2 {
-    display: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    grid-template-areas:
-      "main";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
-  .header1, .header2, .footer1, .footer2, .aside1, .aside2 {
-    display: none !important;
-  }
-}
-
-.headerRow {
-  grid-area: headerRow;
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column; /* <-- agora os headers ficam em coluna */
-  align-items: stretch;
-  justify-content: stretch;
-  width: 100%;
-  min-height: 8rem;
-  padding: 0;
-  margin: 0;
-  z-index: 2;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  overflow: hidden;
-}
-
-/* Exemplo de header dividido em duas partes */
-.headerRow .header1,
-.headerRow .header2 {
-  width: 100%;
-  font-size: 4.5rem; /* tamanho ajustado para 4.5 */
-  font-weight: bold;
-  padding: 0 2rem;
-  height: 5rem; /* ajuste proporcional à fonte */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.headerRow .header1 {
-  background: #1e3c3a;
-  color: #fff;
-}
-
-.headerRow .header2 {
-  background: #094e37;
-  color: #fff;
+.footer {
+  grid-area: footer;
+  background-color: var(--primary-dark); /* azul escuro */
 }
