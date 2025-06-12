@@ -23,8 +23,12 @@ export function MyGrid() {
 
   return (
     <div className={styles.container}>
-      {!isLt768 && <header className={styles.header1}>Header 1</header>}
-      {!isLt768 && <header className={styles.header2}>Header 2</header>}
+      {!isLt768 && (
+        <header className={styles.headerRow}>
+          <span className={styles.header1}>Header 1</span>
+          <span className={styles.header2}>Header 2</span>
+        </header>
+      )}
       {!isLt768 && <aside className={styles.aside1}>Aside Esquerdo</aside>}
       {!isLt1200 && !isLt768 && <aside className={styles.aside2}>Aside Direito</aside>}
       <main className={styles.main}>
