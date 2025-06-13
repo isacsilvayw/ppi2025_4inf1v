@@ -1,0 +1,27 @@
+.main {
+  grid-area: main;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 24px;
+}
+
+.grid {
+  padding: 3rem;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-rows: repeat(auto-fit, min-content);
+}
+
+.card {
+  height: 41rem;
+  background-color: var(--primary-dark);
+  color: var(--primary-contrast-light);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  font-size: 2.7rem;
+  text-align: center;
+}

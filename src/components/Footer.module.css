@@ -1,0 +1,17 @@
+.footer {
+  grid-area: footer;
+  width: 100vw;
+  background-color: var(--gray-100);
+  border-radius: 0;
+  text-align: center;
+  padding: 1rem 0;      /* diminui a altura */
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;    /* diminui o tamanho da fonte */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}

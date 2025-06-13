@@ -1,0 +1,9 @@
+.header1 {
+  grid-area: header;
+  background-color: var(--primary-dark);
+  color: #fff;
+  padding: 3.5rem 0;      /* aumenta a altura do header */
+  text-align: center;
+  font-size: 2rem;    /* aumenta o tamanho do texto */
+  font-weight: bold;
+}
