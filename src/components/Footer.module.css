@@ -3,15 +3,99 @@
   width: 100vw;
   background-color: var(--gray-100);
   border-radius: 0;
-  text-align: center;
-  padding: 1rem 0;      /* diminui a altura */
+  padding: 1rem 2rem;
   font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1.2rem;    /* diminui o tamanho da fonte */
+  justify-content: center; /* espaço entre esquerda e direita */
+  font-size: 1rem; /* diminui o tamanho da fonte */
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  gap: 1.2rem; /* Espaço entre as divs filhas do footer */
+}
+
+.footerText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* alinha à esquerda */
+  flex: 1;
+  gap: 0.2rem;
+}
+
+.footerText h1 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.containerCourse {
+  flex: 1;
+  display: flex;
+  justify-content: center;   /* centraliza horizontalmente */
+  align-items: center;
+}
+
+.containerCourse h1 {
+  font-family: 'Press Start 2P', cursive, sans-serif;
+  color: #0a2240; /* azul igual ao header */
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center; /* centraliza o texto */
+}
+
+.iconsCard {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.iconsCardBg {
+  background: #0a2240; /* azul igual ao header */
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px #0002;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 900px) {
+  .footer {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;      /* Centraliza os itens */
+    justify-content: center;  /* Centraliza os itens */
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;       /* Centraliza textos */
+  }
+  .footerText,
+  .containerCourse,
+  .footerIcons {
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100%;
+    text-align: center;
+    display: flex;
+  }
+  .footerIcons {
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 701px) {
+  .footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0; /* Remove o espaço extra em telas grandes, se preferir */
+  }
 }

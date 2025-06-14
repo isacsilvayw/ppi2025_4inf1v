@@ -3,25 +3,64 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
-  padding: 24px;
+  min-height: 30vh;
+  padding: 2rem 0; /* Espaço acima e abaixo do conteúdo principal */
 }
 
 .grid {
-  padding: 3rem;
   display: grid;
-  gap: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  grid-template-rows: repeat(auto-fit, min-content);
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas inicialmente */
+  gap: clamp(1.5rem, 4vw, 3rem); /* Espaço entre os cards */
+  padding: 0 2rem;               /* Espaço nas laterais do grid */
+  transition: grid-template-columns 0.3s;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 coluna (celular) */
+  }
 }
 
 .card {
-  height: 41rem;
+  height: 28rem;
   background-color: var(--primary-dark);
   color: var(--primary-contrast-light);
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
-  font-size: 2.7rem;
+  font-size: 1.4rem;
   text-align: center;
+  display: flex;
+  flex-direction: column; /* garante coluna */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
 }
+
+.card img {
+  width: 88%;         /* aumentado de 60% para 80% */
+  height: auto;
+  max-height: 17.2rem;  /* aumentado de 10rem para 14rem */
+  object-fit: cover;
+  border-radius: 0.6rem;
+  /* removido margin e padding */
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 0 0.5rem #0002;
+}
+
+.card h2 {
+  font-size: 2.6rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--primary-contrast-light);
+}
+
+/* Os textos já ficam em coluna por causa do flex-direction: column */
+

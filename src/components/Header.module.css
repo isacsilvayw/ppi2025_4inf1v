@@ -7,3 +7,34 @@
   font-size: 2rem;    /* aumenta o tamanho do texto */
   font-weight: bold;
 }
+
+.headerTextLine {
+  display: flex;
+  align-items: center;      /* Centraliza verticalmente ícone e texto */
+  justify-content: center;  /* Centraliza horizontalmente no header */
+  gap: 1rem;
+  width: 100%;
+}
+
+.headerTextLine h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.2rem); /* Cresce/diminui suavemente */
+  font-weight: bold;
+  color: #e0e8f5;
+}
+
+.headerTextLine svg {
+  width: clamp(40px, 10vw, 64px);
+  height: clamp(40px, 10vw, 64px);
+}
+
+/* Para telas pequenas (mobile) */
+@media (max-width: 700px) {
+  .headerTextLine {
+    flex-direction: column;      /* Ícone em cima do texto */
+    gap: 0.7rem;
+  }
+  .headerTextLine h1 {
+    font-size: 3rem;           /* Texto maior no mobile */
+  }
+}
