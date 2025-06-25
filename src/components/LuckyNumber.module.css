@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+  height: 100vh;
+  padding: 2rem;
+  background-color: var(--primary-contrast-dark);
+  font-size: 4rem;
+}
+
+.button {
+  background-color: var(--primary);
+  color: var(--primary-contrast-light);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: inherit;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button:hover {
+  background-color: var(--primary-light);
+      transform: scale(1.05);
+}
