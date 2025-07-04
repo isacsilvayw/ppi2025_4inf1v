@@ -1,4 +1,4 @@
-import { useEffect, UseState } from "react";
+import { useEffect, useState } from "react"; // Corrija UseState para useState
 import styles from "./ProductList.module.css";
 import { CircularProgress } from "@mui/material";
 
@@ -11,46 +11,45 @@ export function ProductList() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {}, []);
-    function fetchProducts() {
-        try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            setProducts(data.products);
-        }
-        catch (error) {
-            setError(error);
-        } finally {
-            setLoading(false);
-        }
+    useEffect(() => {
+        fetch(apiUrl)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data.products || []);
+                setLoading(false);
+            })
+            .catch(err => {
+                setError(err);
+                setLoading(false);
+            });
+    }, [apiUrl]);
 
     return (
-        <div className={styles.container}>
+      <div className={styles.container} style={{ background: "#f4f4f4", color: "#222" }}>
             <h1>Tja Megasrone</h1>
             {products.map((product) => (
-                <div key ={product.id} className={styles.productCard}>
+                <div key={product.id} className={styles.productCard}>
                     <img 
-                    src={product.thumbnail}
-                    alt={product.title}
-                    className={styles.productImage}
+                        src={product.thumbnail}
+                        alt={product.title}
+                        className={styles.productImage}
                     />
                     <h2 className={styles.productTitle}>{`${product.brand} ${product.title}`}</h2>
-                    <p className={styles.productDescription}> Price ${product.price}</p>
-                    <p className={styles.productPrice}>${product.description}</p>
-                    </div>
-
-           ))}
-           {loading && (
-            <div>
-          <CircularProgress
-          thickness ={5}
-          style={{ margin: "2rem auto", display: "block" }}
-          sx={{ color: "#1976d2" }}
-                />
-        <p>Loading products...</p>
+                    <p className={styles.productDescription}>Price ${product.price}</p>
+                    <p className={styles.productPrice}>{product.description}</p>
+                </div>
+            ))}
+            {loading && (
+                <div>
+                    <CircularProgress
+                        thickness={5}
+                        style={{ margin: "2rem auto", display: "block" }}
+                        sx={{ color: "#1976d2" }}
+                    />
+                    <p>Loading products...</p>
+                </div>
+            )}
+            {error && <p> Error loading Products: {error.message} ❌</p>}
         </div>
-           )}
-           {error && <p> Error loading Producus: {error.mensage} ❌</p>}
-        </div>
-    )
+    );
 }
