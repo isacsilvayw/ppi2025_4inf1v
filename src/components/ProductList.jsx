@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"; // Corrija UseState para useState
+import { useEffect, useState } from "react";
 import styles from "./ProductList.module.css";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Button } from "@mui/material";
 
 export function ProductList() {
     var category = "smartphones";
@@ -10,6 +10,11 @@ export function ProductList() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [cart, setCart] = useState([]);
+
+    function handleAddToCart(product) {
+        setCart((prevCart) => [...prevCart, product]);
+    }
 
     useEffect(() => {
         fetch(apiUrl)
@@ -37,6 +42,14 @@ export function ProductList() {
                     <h2 className={styles.productTitle}>{`${product.brand} ${product.title}`}</h2>
                     <p className={styles.productDescription}>Price ${product.price}</p>
                     <p className={styles.productPrice}>{product.description}</p>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() => handleAddToCart(product)}
+                        sx={{ marginTop: 1 }}
+                    >
+                        Adicionar ao Carrinho
+                    </Button>
                 </div>
             ))}
             {loading && (
