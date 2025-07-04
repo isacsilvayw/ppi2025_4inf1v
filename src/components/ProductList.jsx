@@ -12,6 +12,17 @@ export function ProductList() {
     const [error, setError] = useState(null);
 
     useEffect(() => {}, []);
+    function fetchProducts() {
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            setProducts(data.products);
+        }
+        catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
 
     return (
         <div className={styles.container}>
